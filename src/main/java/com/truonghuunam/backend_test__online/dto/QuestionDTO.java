@@ -10,7 +10,7 @@ public class QuestionDTO {
 
     private String optionA;
 
-    private String optionB; 
+    private String optionB;
 
     private String optionC;
 
