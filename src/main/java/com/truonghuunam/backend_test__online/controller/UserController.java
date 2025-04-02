@@ -1,6 +1,5 @@
 package com.truonghuunam.backend_test__online.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("api/auth")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
     private UserService userService;
-
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signupUser(@RequestBody User user) {
