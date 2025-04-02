@@ -37,11 +37,14 @@ public class SecurityConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("*"));
+
+        config.setAllowedOriginPatterns(List.of("*")); // ✅ Dùng allowedOriginPatterns thay vì allowedOrigins
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(true); // ✅ Cho phép gửi cookies, tokens từ trình duyệt
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+
 }
