@@ -25,11 +25,10 @@ public class SecurityConfig {
                 }))
                 .csrf(csrf -> csrf.disable()) // Vô hiệu hóa CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll()) // Cho phép tất cả request (Dùng để test)
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // ✅ Đặt trước anyRequest()
+                        .anyRequest().permitAll()) // ✅ Cho phép tất cả các request còn lại
                 .formLogin(login -> login.disable())
                 .httpBasic(basic -> basic.disable());
-        http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll());
 
         return http.build();
     }
