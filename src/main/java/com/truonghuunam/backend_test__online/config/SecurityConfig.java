@@ -28,6 +28,8 @@ public class SecurityConfig {
                         .anyRequest().permitAll()) // Cho phép tất cả request (Dùng để test)
                 .formLogin(login -> login.disable())
                 .httpBasic(basic -> basic.disable());
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll());
 
         return http.build();
     }
