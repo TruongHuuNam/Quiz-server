@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.truonghuunam.backend_test__online.BackendTestOnlineApplication;
 import com.truonghuunam.backend_test__online.dto.QuestionDTO;
 import com.truonghuunam.backend_test__online.dto.QuestionResponse;
 import com.truonghuunam.backend_test__online.dto.SubmitTestDTO;
