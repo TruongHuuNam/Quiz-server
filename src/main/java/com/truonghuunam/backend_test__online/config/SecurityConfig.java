@@ -17,16 +17,16 @@ public class SecurityConfig {
         http
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOrigins(List.of("*")); // Cho phép tất cả domain
+                    config.setAllowedOriginPatterns(List.of("*")); // Use patterns instead of origins
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                     config.setAllowedHeaders(List.of("*"));
                     config.setAllowCredentials(true);
                     return config;
                 }))
-                .csrf(csrf -> csrf.disable()) // Vô hiệu hóa CSRF
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // ✅ Đặt trước anyRequest()
-                        .anyRequest().permitAll()) // ✅ Cho phép tất cả các request còn lại
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .anyRequest().permitAll())
                 .formLogin(login -> login.disable())
                 .httpBasic(basic -> basic.disable());
 
