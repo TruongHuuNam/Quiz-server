@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("api/auth")
-@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
