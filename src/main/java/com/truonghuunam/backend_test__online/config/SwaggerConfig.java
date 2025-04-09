@@ -21,7 +21,7 @@ public class SwaggerConfig {
                                 .servers(List.of(
                                                 new Server().url("http://localhost:9192")
                                                                 .description("Local Development Server"),
-                                                new Server().url("https://quiz-server-production-eddc.up.railway.app")
+                                                new Server().url("https://quiz-server-cz64.onrender.com")
                                                                 .description("Production Server")));
         }
 }
