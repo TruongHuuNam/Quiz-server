@@ -19,6 +19,8 @@ public class SwaggerConfig {
                                                 .version("1.0")
                                                 .description("API cho hệ thống thi trắc nghiệm nâng cao"))
                                 .servers(List.of(
+                                                new Server().url("http://localhost:9192")
+                                                                .description("Local Development Server"),
                                                 new Server().url("https://quiz-server-production-eddc.up.railway.app")
                                                                 .description("Production Server")));
         }

@@ -17,7 +17,7 @@ public class SecurityConfig {
         http
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOriginPatterns(List.of("*")); // Use patterns instead of origins
+                    config.setAllowedOriginPatterns(List.of("*"));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                     config.setAllowedHeaders(List.of("*"));
                     config.setAllowCredentials(true);
@@ -28,10 +28,10 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/swagger-ui.html",
                                 "/swagger-ui/**",
-                                "/v3/api-docs/**")
+                                "/v3/api-docs/**",
+                                "/api/**") // Add your API base path
                         .permitAll()
-
-                        .anyRequest().permitAll())
+                        .anyRequest().authenticated()) // Secure other endpoints
                 .formLogin(login -> login.disable())
                 .httpBasic(basic -> basic.disable());
 

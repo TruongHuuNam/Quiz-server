@@ -17,6 +17,7 @@ import com.truonghuunam.backend_test__online.service.test.TestService;
 
 @RestController
 @RequestMapping("api/test")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TestController {
 
     @Autowired
